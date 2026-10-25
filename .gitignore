@@ -1,0 +1,4 @@
+﻿# Executable files
+*.exe
+# Temporary Code Runner files
+tempCodeRunnerFile.cpp
