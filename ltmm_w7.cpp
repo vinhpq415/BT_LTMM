@@ -8,16 +8,17 @@ using namespace std;
 
 int main()
 {
-    int m4 = 19;    // x^4 + x + 1                
-    int m8 = 283;   // x^8 + x^4 + x^3 + x + 1    
-
+{
     int n;
-    cout << "Chon truong GF(2^n)";
+    cout << "Chon truong GF(2^n) (4 hoac 8): ";
     cin >> n;
 
-    int m;
-    if (n == 4) m = m4;
-    else m = m8;
+    // Kiem tra n
+    int m = getModulus(n);
+    if (m == 0) {
+        cout << "Chi ho tro n = 4 hoac n = 8" << endl;
+        return 1;
+    }
 
     string inputA, inputB;
     cout << "Nhap a(x): ";
@@ -25,8 +26,21 @@ int main()
     cout << "Nhap b(x): ";
     cin >> inputB;
 
+    // Kiem tra chuoi nhap vao chi co 0 va 1
+    if (!isBinary(inputA) || !isBinary(inputB)) {
+        cout << "a(x), b(x) chi duoc gom cac chu so 0 va 1" <<endl;
+        return 1;
+    }
+
     int a = binaryToInt(inputA);
     int b = binaryToInt(inputB);
+
+    // Kiem tra bac cua a(x), b(x) phai nho hon n
+    if (degree(a) >= n || degree(b) >= n) {
+        cout << "Bac cua a(x), b(x) phai nho hon " << n << endl;
+        return 1;
+    }
+
     int c = gfMultiply(a, b, n, m);
 
     cout << "m(x) = ";
