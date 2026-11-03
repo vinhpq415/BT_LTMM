@@ -52,4 +52,32 @@ int binaryToInt(string s)
     return value;
 }
 
+// Chon m(x) theo n, tra ve 0 neu n sai
+int getModulus(int n)
+{
+    if (n == 4) return 19;    // x^4 + x + 1
+    if (n == 8) return 283;   // x^8 + x^4 + x^3 + x + 1
+    return 0;
+}
+
+// Kiem tra chuoi chi gom cac ky tu 'binary
+bool isBinary(string s)
+{
+    if (s.length() == 0) return false;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] != '0' && s[i] != '1') return false;
+    }
+    return true;
+}
+
+// Tim bac cua da thuc, da thuc 0 thi tra ve -1
+int degree(int p)
+{
+    for (int i = 15; i >= 0; i--) {
+        if ((p >> i) & 1) return i;
+    }
+    return -1;
+}
+
+
 #endif

@@ -64,6 +64,20 @@ int main()
     }
     check("GF(2^4): thu tat ca cac cap", errors, 0);
 
+    // 5. Test cac ham kiem tra dau vao
+    check("getModulus(4)", getModulus(4), 19);
+    check("getModulus(8)", getModulus(8), 283);
+    check("getModulus(5) khong ho tro", getModulus(5), 0);
+
+    check("isBinary 1011", isBinary("1011"), true);
+    check("isBinary 102", isBinary("102"), false);
+    check("isBinary abc", isBinary("abc"), false);
+
+    check("degree(0)", degree(0), -1);
+    check("degree(1)", degree(1), 0);
+    check("degree(19)", degree(19), 4);
+    check("degree(283)", degree(283), 8);
+
     cout << endl;
     cout << "Dung: " << passCount << ", Sai: " << failCount << endl;
     if (failCount > 0) {
