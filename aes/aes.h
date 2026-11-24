@@ -160,13 +160,13 @@ string aesEncrypt(string plainHex, string keyHex)
     cout << "key       : " << keyHex << endl;
 
     // Vong 0: chi AddRoundKey
-    cout << "--- round 0 ---" << endl;
+    cout << "round 0" << endl;
     cout << "roundkey  : " << bytesToHex(roundKeys[0], 16) << endl;
     addRoundKey(state, roundKeys[0]);
     cout << "after ark : " << bytesToHex(state, 16) << endl;
 
     for (int round = 1; round <= 10; round++) {
-        cout << "--- round " << round << " ---" << endl;
+        cout << "round " << round << endl;
         cout << "start     : " << bytesToHex(state, 16) << endl;
         subBytes(state);
         cout << "subbytes  : " << bytesToHex(state, 16) << endl;
